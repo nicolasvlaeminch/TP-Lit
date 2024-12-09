@@ -50,13 +50,16 @@ export class LoginComponent extends LitElement {
             border-radius: 4px;
             cursor: pointer;
         }
+
+        button:hover {
+            background-color: green;
+          }
         `
     ];
 
     handleSubmit(event) {
         event.preventDefault();
-        this.dispatchCustomEvent('login-success', { email: this.email, password: this.password});
-
+        this.dispatchCustomEvent('login', { email: this.email, password: this.password });
         this.initProperties();
     }
 
@@ -87,10 +90,10 @@ export class LoginComponent extends LitElement {
             <label for="email">Email:</label>
             <input type="email" required id="email" name="email" .value=${this.email} @input=${this.handleInputChange}>
             
-            <label for="password">Password:</label>
+            <label for="password">Contraseña:</label>
             <input type="password" required id="password" name="password" .value=${this.password} @input=${this.handleInputChange}>
 
-            <button type="submit">Login</button>
+            <button type="submit">Ingresar</button>
         </form>
         
         `;
